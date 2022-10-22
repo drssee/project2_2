@@ -1,0 +1,7 @@
+간단한 게시판 crud mybatis로 구현후 ajax로 댓글 기능 구현까지 + 검색 + 시간남으면 페이징
+
+
+수정 업데이트
+글삭제 삭제
+
+검색 @valid @exceptionhandler mybatis맵으로 보내는법
