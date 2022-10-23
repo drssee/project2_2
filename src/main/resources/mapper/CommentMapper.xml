@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.CommentMapper">
+    <insert id="insert" parameterType="org.zerock.comment.CommentVO">
+        INSERT INTO webdb.comment
+            (bno, pcno, comment, commenter, regDate)
+        VALUES
+            (#{bno}, #{pcno}, #{comment}, #{commenter}, now())
+    </insert>
+    <select id="select" parameterType="int" resultType="org.zerock.comment.CommentVO">
+        SELECT cno, bno, pcno, comment, commenter, regDate, up_date
+        FROM webdb.comment
+        WHERE cno = #{cno}
+    </select>
+    <select id="selectAll" parameterType="int" resultType="org.zerock.comment.CommentVO">
+        SELECT cno, bno, if(pcno=0,cno,pcno) as pcno , comment, commenter, regDate, up_date
+        FROM webdb.comment
+        WHERE bno = #{bno}
+        ORDER BY pcno asc, cno asc;
+#         SELECT cno, bno, ifnull(cno,pcno) as pcno , comment, commenter, regDate, up_date
+#         FROM webdb.comment
+#         WHERE bno = #{bno}
+#         ORDER BY pcno asc, cno asc;
+    </select>
+    <update id="update" parameterType="org.zerock.comment.CommentVO">
+        UPDATE webdb.comment
+        SET comment = #{comment}
+          , up_date = now()
+        WHERE cno = #{cno} and commenter = #{commenter}
+    </update>
+    <delete id="delete" parameterType="map">
+        DELETE FROM webdb.comment WHERE cno = #{cno} AND bno = #{bno} AND commenter = #{commenter}
+    </delete>
+    <delete id="deleteAll" parameterType="int">
+        DELETE FROM webdb.comment
+        WHERE  bno = #{bno}
+    </delete>
+    <select id="count" parameterType="int" resultType="int">
+        SELECT count(*) FROM webdb.comment
+        WHERE  bno = #{bno}
+    </select>
+</mapper>

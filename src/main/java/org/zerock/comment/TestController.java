@@ -1,24 +1,24 @@
-package org.zerock.rest;
+package org.zerock.comment;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class SimpleRestcontroller {
-    @GetMapping("/ajax")
+public class TestController {
+    @GetMapping("/test")
     public String ajax(){
-        return "rest/ajax";
+        return "rest/ajax_comment_test";
     }
 
-    @PostMapping("/send")
-    @ResponseBody // 리턴객체를 응답http body에 담으라는 의미(view x)
-    public Person test(@RequestBody Person p) { //Request - GET,POST // 요청http body에 오는 내용을 person p 에 받겠다는 의미
-        System.out.println("p = " + p);
-        p.setName("ABC");
-        p.setAge(p.getAge()+10);
-
-        return p;
-    }
+//    @PostMapping("/send")
+//    @ResponseBody // 리턴객체를 응답http body에 담으라는 의미(view x)
+//    public Person test(@RequestBody Person p) { //Request - GET,POST // 요청http body에 오는 내용을 person p 에 받겠다는 의미
+//        System.out.println("p = " + p);
+//        p.setName("ABC");
+//        p.setAge(p.getAge()+10);
+//
+//        return p;
+//    }
     //JSON을 이용해서 서버와 통신하는 방법 (ajax사용)
     //**ajax는 비동기 연결**(싱글쓰레드 동기화를 깨서 요청후 응답이 올때까지 대기하는것이 아닌 다른 작업을 바로 시작할수 있음,콜백)
     //1.클라이언트에서 ajax를 이용해서 http요청(POST) 형식으로 바디에 js -> JSON(JSON.stringify)를 담아 서버에 전송

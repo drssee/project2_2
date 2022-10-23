@@ -1,7 +1,8 @@
-간단한 게시판 crud mybatis로 구현후 ajax로 댓글 기능 구현까지 + 검색 + 시간남으면 페이징
-
-
-수정 업데이트
-글삭제 삭제
-
+ajax로 댓글 기능 구현까지
 검색 @valid @exceptionhandler mybatis맵으로 보내는법
+
+게시판 댓글갯수,댓글 응답코드
+
+(서블릿 비동기rest , 서블릿 tx)
+서블릿으로 http_restapi 요청 작성하기(그냥 ajax 쓸까?)(노션에 링크가져옴)
+서블릿으로 http_restapi 응답 받아서 처리하기 (/rest/Models.java)
