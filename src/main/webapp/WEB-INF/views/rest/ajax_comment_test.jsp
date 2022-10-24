@@ -125,7 +125,7 @@
       //http형식 지정
       url: '/comments?bno='+bno,
       type:'GET',
-      headers: {"content-type":"application/json"}, //json 타입으로 http요청(POST) 바디에 담아서 보낸다
+      headers: {"content-type":"application/json"},
       //http
 
       //callback함수
